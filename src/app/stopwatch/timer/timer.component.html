@@ -1,0 +1,62 @@
+
+<div class="container">
+  <div class="timer-container">
+    <section class="timer-counter-label">
+      <div *ngIf="counter" [ngClass]="{blink: !running}">
+        <span>{{minutes}}:</span><span>{{seconds}}:</span> <span>{{milliseconds}}</span> </div>
+      <div *ngIf="!counter">
+        <span>{{minutes}}:</span><span>{{seconds}}:</span> <span>{{milliseconds}}</span>
+      </div>
+    </section>
+  </div>
+
+
+
+
+	<div class="timer-button-container" *ngIf="showTimerControls">
+
+    <div class="btn-grid">
+      <button
+        *ngIf="startText=='Resume'; else placeholder"
+        class="btn btn-secondary" (click)="clearTimer()">
+        <fa-icon class="btn-icon" [icon]="['fas', 'redo']"></fa-icon>
+      </button>
+
+      <button class="btn btn-primary" (click)="startTimer()"
+        *ngIf="(startText=='Start' || startText=='Resume');else elseBlock">
+        <fa-icon class="btn-icon" [icon]="['fas', 'play']"></fa-icon>
+      </button>
+
+      <ng-template #elseBlock>
+        <button class="btn btn-primary" (click)="startTimer()">
+          <fa-icon class="btn-icon" [icon]="['fas', 'pause']"></fa-icon>
+        </button>
+      </ng-template>
+
+      <button
+        *ngIf="startText=='Resume'"
+        class="btn btn-secondary" (click)="saveTime()">
+        <fa-icon class="btn-icon" [icon]="['fas', 'save']"></fa-icon>
+      </button>
+
+      <button *ngIf="running; else placeholder"
+        class="btn btn-secondary"
+        (click)="lapTimeSplit()">
+        <fa-icon class="btn-icon" [icon]="['fas', 'flag']"></fa-icon>
+      </button>
+
+      <ng-template #placeholder>
+        <div></div>
+      </ng-template>
+    </div>
+
+		<br>
+		<div class="lap" *ngFor="let lap of laps;let i = index">
+			<p>
+        <i><fa-icon class="btn-icon" [icon]="['fas', 'flag']"></fa-icon></i>
+        <span><b>Runde {{i+1}}::</b></span>
+        <span>{{ lap.minutes }}:{{ lap.seconds }}:{{ lap.milliseconds }}</span>
+      </p>
+		</div>
+	</div>
+</div>

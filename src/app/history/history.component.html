@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="runtime-item" *ngFor="let run of runtimes">
+    {{ run.date  | date }}
+    <span>
+      {{ run.laps[run.laps.length-1].minutes }}:{{ run.laps[run.laps.length-1].seconds }}:{{ run.laps[run.laps.length-1].milliseconds }}
+    </span>
+  </div>
+</div>

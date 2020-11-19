@@ -1,0 +1,47 @@
+@import '_variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .timer-container {
+    width: 100vw;
+    padding: 1rem 1rem;
+    background-color: $primary-color;
+
+    display: inline-flex;
+    justify-content: center;
+
+    span {
+      color: $white-color;
+      font-size: $h1-size;
+    }
+  }
+
+  .lap {
+    padding: 0.2rem 0;
+    span {
+      margin-left: 0.3rem;
+    }
+  }
+
+  .timer-button-container {
+    margin-top: 1rem;
+
+    .btn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

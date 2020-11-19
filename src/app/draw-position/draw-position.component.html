@@ -1,0 +1,19 @@
+<div class="container">
+  <ul id="drawnList" class="drawn-list">
+    <li class="drawn-item" *ngFor="let position of drawnPositions">
+      <span>{{ position.shortName }}</span>
+      <span>{{ position.name }}</span>
+    </li>
+  </ul>
+
+  <button *ngIf="!isDisabled; else elseBlock"
+    class="btn btn-primary" (click)="drawPosition()">
+    <fa-icon class="btn-icon" [icon]="['fas', 'plus']"></fa-icon>Nummer ziehen
+  </button>
+
+  <ng-template #elseBlock>
+    <button class="btn btn-primary" (click)="reset()">
+      <fa-icon class="btn-icon" [icon]="['fas', 'redo']"></fa-icon>Zurücksetzen
+    </button>
+  </ng-template>
+</div>

@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+@import '_variables';
+
+
+html {
+  font-size: $font-base-size;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: $font-family;
+  font-size: $text-size;
+}
+
+h1,
+h2,
+h3 {
+  padding: $h-margin;
+}
+
+.icon {
+  width: $icon-size;
+  height: $icon-size;
+}
+
+.btn {
+  width: 2rem;
+  height: 1.5rem;
+  margin: $btn-margin;
+  padding: 1.5rem;
+
+  border: none;
+  border-radius: 1.5rem;
+  -webkit-border-radius: 1.5rem;
+  -moz-border-radius: 1.5rem;
+  -ms-border-radius: 1.5rem;
+  -o-border-radius: 1.5rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  color: $white-color !important;
+  background-color: $primary-color;
+}
+
+.btn-secondary {
+  color: $primary-color !important;
+  background-color: $white-color;
+}
+
+.disabled{
+  cursor: not-allowed;
+  background-color: $disabled-color;
+}
