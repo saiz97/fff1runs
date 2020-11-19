@@ -1,27 +1,9 @@
-# Fff1Stopwatch
+# Fff1 Stopwatch
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
+This project was born out of sheer boredom.
 
-## Development server
+In the training of the Freindorf 1 competition group, times of our runs are always taken and written down. This Angular application therefore includes a stopwatch with a lap function.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+For runs in the Silver category, the positions will be allocated randomly. For this purpose, the application contains a randomizer of these existing positions.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+In order to be able to keep an eye on success, all times are stored in Firebase. These can be called up and viewed in the diary-section.
