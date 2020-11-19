@@ -14,6 +14,10 @@ export class HistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.runtimes = this.runService.getRunningTimes();
-    console.table(this.runtimes);
+    this.runtimes = this.runtimes.reverse();
+  }
+
+  reverse() {
+    this.runtimes = this.runtimes.reverse();
   }
 }

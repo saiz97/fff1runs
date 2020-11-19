@@ -1,8 +1,15 @@
 <div class="container">
-  <div class="runtime-item" *ngFor="let run of runtimes">
-    {{ run.date  | date }}
-    <span>
-      {{ run.laps[run.laps.length-1].minutes }}:{{ run.laps[run.laps.length-1].seconds }}:{{ run.laps[run.laps.length-1].milliseconds }}
-    </span>
+  <div class="history-head">
+    <h1>Tagebuch</h1>
+    <button class="btn btn-secondary" (click)="reverse()"><fa-icon class="btn-icon" [icon]="['fas', 'sort']"></fa-icon></button>
+  </div>
+  <div class="times-list">
+    <div class="runtime-item" *ngFor="let run of runtimes; let i = index">
+      <div><fa-icon class="btn-icon" [icon]="['fas', 'stopwatch']"></fa-icon></div>
+      <div>{{ run.date  | date }}</div>
+      <div>
+        {{ run.laps[run.laps.length-1].minutes }}:{{ run.laps[run.laps.length-1].seconds }}:{{ run.laps[run.laps.length-1].milliseconds }}
+      </div>
+    </div>
   </div>
 </div>
