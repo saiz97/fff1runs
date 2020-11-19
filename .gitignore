@@ -47,3 +47,7 @@ Thumbs.db
 
 # others
 \environments
+.firebaserc
+firebase.json
+\.firebase
+\public
