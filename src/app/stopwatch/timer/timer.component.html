@@ -35,7 +35,9 @@
 
       <button
         *ngIf="startText=='Resume'"
-        class="btn btn-secondary" (click)="saveTime()">
+        [ngClass]="{'disabled': !isAuthenticated}"
+        class="btn btn-secondary"
+        (click)="saveTime()">
         <fa-icon class="btn-icon" [icon]="['fas', 'save']"></fa-icon>
       </button>
 

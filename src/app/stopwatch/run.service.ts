@@ -12,6 +12,7 @@ export class RunService {
   constructor() { }
 
   getRunningTimes() {
+    // return (this.runtimes) ? this.runtimes.slice() : [];
     return this.runtimes.slice();
   }
 
@@ -21,7 +22,9 @@ export class RunService {
 
   setRunningTimes(times: RunningTime[]) {
     this.runtimes = times;
-    this.timesChanged.next(this.runtimes.slice());
+
+    if (times != null)
+      this.timesChanged.next(this.runtimes.slice());
   }
 
   addRunningTime(time: RunningTime) {

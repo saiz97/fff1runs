@@ -1,0 +1,36 @@
+@import '_variables';
+
+.runtime-item {
+  width: 100%;
+  margin-bottom: 0.2rem;
+
+  .item-head {
+    display: flex;
+
+    div {
+      display: flex;
+      align-items: center;
+      margin: 0 0.5rem;
+    }
+  }
+
+  .item-body {
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid $secondary-color;
+
+    .lap {
+      display: flex;
+      align-items: center;
+      margin: 0.5rem 0;
+
+      .btn-icon {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .item-body.hidden {
+    display: none;
+  }
+}

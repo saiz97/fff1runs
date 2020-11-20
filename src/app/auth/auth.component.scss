@@ -1,0 +1,36 @@
+@import '_variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 1rem;
+
+    .form-group {
+      width: 100%;
+
+      input {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+  }
+}
+
+.btn {
+  width: auto;
+  padding: 1rem 1.5rem;
+
+  border-radius: 0.2rem;
+  -webkit-border-radius: 0.2rem;
+  -moz-border-radius: 0.2rem;
+  -ms-border-radius: 0.2rem;
+  -o-border-radius: 0.2rem;
+}

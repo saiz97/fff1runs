@@ -11,7 +11,11 @@
       <ul class="navbar">
         <li class="nav-item" routerLink="/stopwatch" (click)="closeNav()">Stoppuhr</li>
         <li class="nav-item" routerLink="/draw" (click)="closeNav()">Ziehen</li>
-        <li class="nav-item" routerLink="/history" (click)="closeNav()">Tagebuch</li>
+        <li class="nav-item" routerLink="/history"
+          [ngClass]="{'disabled': !isAuthenticated}"
+          (click)="closeNav()">Tagebuch</li>
+        <li class="nav-item" routerLink="/auth" *ngIf="!isAuthenticated" (click)="closeNav()">Einloggen</li>
+        <li class="nav-item" routerLink="/auth" *ngIf="isAuthenticated" (click)="onLogout()">Ausloggen</li>
       </ul>
     </div>
   </div>
@@ -19,3 +23,9 @@
     <img src="../../assets/adler.png" alt="Bewerbsadler Freindorf 1">
   </picture>
 </header>
+
+<div
+  class="backdrop"
+  [style.display]="isNavVisible ? 'block' : 'none'"
+  (click)="closeNav()">
+</div>

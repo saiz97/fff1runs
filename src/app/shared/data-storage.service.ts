@@ -31,11 +31,15 @@ export class DataStorageService {
       )
       .pipe(
         map(times => {
-          return times.map(time => {
-            return {
-              ...time
-            };
-          });
+          if (times != null) {
+            return times.map(time => {
+              return {
+                ...time
+              };
+            });
+          } else {
+            return null;
+          }
         }),
         tap(times => {
           this.runService.setRunningTimes(times);

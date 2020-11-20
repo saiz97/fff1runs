@@ -24,6 +24,18 @@ h3 {
   padding: $h-margin;
 }
 
+.form-group {
+  label {
+    font-size: 0.8rem;
+  }
+
+  input {
+    font-size: $text-input-size;
+    padding: 0.2rem 0.3rem;
+  }
+
+}
+
 .icon {
   width: $icon-size;
   height: $icon-size;
@@ -66,5 +78,7 @@ h3 {
 
 .disabled {
   cursor: not-allowed;
-  background-color: $disabled-color;
+  pointer-events:none;
+  opacity:0.6;
+  //background-color: $disabled-color;
 }

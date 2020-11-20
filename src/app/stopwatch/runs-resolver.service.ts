@@ -21,7 +21,7 @@ export class RunsResolverService implements Resolve<RunningTime[]> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const times = this.runService.getRunningTimes();
-    if (times.length === 0) {
+    if (times == null || times.length === 0) {
       return this.dataStorageService.fetchRuntimes();
     } else {
       return times;

@@ -19,21 +19,5 @@
 
     padding: 0 1rem;
 
-    .runtime-item {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      div {
-        margin: 0 0.5rem;
-      }
-    }
-
-    .runtime-item:nth-child(even) {
-      background-color: $disabled-color;
-    }
-
   }
-
 }

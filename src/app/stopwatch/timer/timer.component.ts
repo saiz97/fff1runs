@@ -4,6 +4,8 @@ import { RunService } from '../run.service';
 import { RunningTime } from '../model/running-time.model';
 import { Lap } from '../model/lap.model';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
+import { AuthService } from 'src/app/auth/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-timer',
@@ -11,6 +13,9 @@ import { DataStorageService } from 'src/app/shared/data-storage.service';
   styleUrls: ['./timer.component.scss']
 })
 export class TimerComponent implements OnInit, OnDestroy {
+  private userSub: Subscription;
+  isAuthenticated = false;
+
   clock: any;
   minutes: any = '00';
   seconds: any = '00';
@@ -29,7 +34,10 @@ export class TimerComponent implements OnInit, OnDestroy {
   @Input() start: boolean;
   @Input() showTimerControls: boolean;
 
-  constructor(private runService: RunService, private dataStorageService: DataStorageService) { }
+  constructor(
+    private runService: RunService,
+    private dataStorageService: DataStorageService,
+    private authService: AuthService) { }
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes['start']);
@@ -74,7 +82,6 @@ export class TimerComponent implements OnInit, OnDestroy {
   }
 
   lapTimeSplit() {
-    // let lapTime = this.minutes + ':' + this.seconds + ':' + this.milliseconds;
     let lap = new Lap(this.minutes, this.seconds, this.milliseconds);
     this.laps.push(lap);
   }
@@ -90,13 +97,6 @@ export class TimerComponent implements OnInit, OnDestroy {
     clearInterval(this.timerRef);
   }
 
-  ngOnDestroy() {
-    this.clearTimer();
-  }
-
-  ngOnInit() {
-  }
-
   saveTime() {
     this.lapTimeSplit();
     console.table(this.laps);
@@ -109,4 +109,14 @@ export class TimerComponent implements OnInit, OnDestroy {
     this.clearTimer();
   }
 
+  ngOnInit() {
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = !!user;
+    });
+  }
+
+  ngOnDestroy() {
+    this.clearTimer();
+    this.userSub.unsubscribe();
+  }
 }
